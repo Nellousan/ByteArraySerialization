@@ -1,8 +1,11 @@
 /*
-** EPITECH PROJECT, 2021
-** Serialization
+** Byte Array Serialization
 ** File description:
-** FNSer
+** Header only lib which purpose is to be able to easily serialize data/classes
+** to send them over networking protocol and unserialize them easily afterward.
+** Author:
+** Nell Fauveau
+** https://github.com/Nellousan/ByteArraySerialisation
 */
 
 #ifndef BAS_HPP_
