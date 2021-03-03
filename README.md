@@ -2,6 +2,8 @@
 
 ## Description
 
+(this project is a work in progress and isn't really "distributable" yet)\
+\
 Multi-purpose byte array serialisation lib for C++ classes or any type of data.\
 This lib provide a mean to easily serialize classes for networking purpose or to save them into binary file (even though you're probably better using json or xml in this case)\
 \
