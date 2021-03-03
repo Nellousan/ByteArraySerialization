@@ -7,7 +7,7 @@ This lib provide a mean to easily serialize classes for networking purpose or to
 \
 Here is a preview of how it works:
 ![Image](./.github/supercool.gif)
-\
+
 ## Installation
 \
 Since this lib is header and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path for you project, and that's it !\
