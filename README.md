@@ -12,7 +12,7 @@ Here is a preview of how it works:
 
 ## Installation
 \
-Since this lib is header and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path for you project, and that's it !\
+Since this lib is header only and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path for you project, and that's it !\
 \
 Download: (wip)
 
