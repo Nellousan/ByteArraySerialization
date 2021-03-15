@@ -11,11 +11,8 @@
 #ifndef BAS_HPP_
 #define BAS_HPP_
 
-#include <algorithm>
 #include <cstring>
 #include <vector>
-
-#include <iostream>
 
 ////////////////////////////////////////////
 
