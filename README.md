@@ -7,14 +7,14 @@ This lib provide a way to easily serialize classes for networking purpose or to 
 
 ## Installation
 \
-Since this lib is header only and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path for you project, and that's it.
-\
+Since this lib is header only and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path of your project and it's ready to go.
+
 ## Documentation
 \
 A full documentation of the library is provided in this repository, open /docs/html/index.html with your browser to have acces to the documentation.
 
 ## TO-DO
-\
+
 - Unit-Tests
 - Make this readme into a proper readme
 - CI
