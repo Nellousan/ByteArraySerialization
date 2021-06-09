@@ -1,0 +1,85 @@
+\hypertarget{intrication_8cpp-example}{}\section{intrication.\+cpp}
+Let\textquotesingle{}s take our first example and push it a little further.~\newline
+Let\textquotesingle{}s say we want our Serializable\+Person to hold a wallet class, since our wallet class won\textquotesingle{}t be a primary type nor a c-\/style array, we won\textquotesingle{}t be able to push the wallet into the Serialized\+Object by directly calling push\+Data.~\newline
+Fortunately, the library provide an handy solution\+:
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{bas_8hpp}{bas.hpp}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// here is our wallet class the SerializablePerson will be holding, the trick here is to make the wallet serializable as well}}
+\DoxyCodeLine{\textcolor{keyword}{class }SerializableWallet : \textcolor{keyword}{public} \mbox{\hyperlink{classbas_1_1Serializable}{bas::Serializable}} \{}
+\DoxyCodeLine{\textcolor{keyword}{public}: }
+\DoxyCodeLine{    SerializableWallet(\textcolor{keyword}{const} std::vector<int>\& money, \textcolor{keyword}{const} std::string id\_card) }
+\DoxyCodeLine{        : money(money)}
+\DoxyCodeLine{        , id\_card(id\_card)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ~SerializableWallet() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}{makeSerialization}}(\mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}}\& obj)\textcolor{keyword}{ override}}
+\DoxyCodeLine{\textcolor{keyword}{    }\{}
+\DoxyCodeLine{        obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(money); \textcolor{comment}{// Just like with std::string, pushData handles the std::vector<T> class as long as T is a primary type.}}
+\DoxyCodeLine{        obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(id\_card);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}{makeUnserialization}}(\mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}}\& obj)\textcolor{keyword}{ override}}
+\DoxyCodeLine{\textcolor{keyword}{    }\{}
+\DoxyCodeLine{        money = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<std::vector<int>>();}
+\DoxyCodeLine{        id\_card = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<std::string>();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::vector<int> money;}
+\DoxyCodeLine{    std::string id\_card;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class }SerializablePerson : \textcolor{keyword}{public} \mbox{\hyperlink{classbas_1_1Serializable}{bas::Serializable}} \{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{    SerializablePerson(\textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{int} age, \textcolor{keyword}{const} SerializableWallet\& wallet)}
+\DoxyCodeLine{        : name(name)}
+\DoxyCodeLine{        , age(age)}
+\DoxyCodeLine{        , wallet(wallet)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ~SerializablePerson() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}{makeSerialization}}(\mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}}\& obj)\textcolor{keyword}{ override}}
+\DoxyCodeLine{\textcolor{keyword}{    }\{}
+\DoxyCodeLine{        obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(name);}
+\DoxyCodeLine{        obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(age);}
+\DoxyCodeLine{        obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(wallet.serialize());                           \textcolor{comment}{// Here is the workaround, pushData handles SerializedObject automatically}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{void} \mbox{\hyperlink{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}{makeUnserialization}}(\mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}}\& obj)\textcolor{keyword}{ override}}
+\DoxyCodeLine{\textcolor{keyword}{    }\{}
+\DoxyCodeLine{        name = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<std::string>();}
+\DoxyCodeLine{        age = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<\textcolor{keywordtype}{int}>();}
+\DoxyCodeLine{        wallet.unserialize(obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<\mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}}>());   \textcolor{comment}{// popping SerializedObject is as easy a pushing it}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::string name;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} age;}
+\DoxyCodeLine{    SerializableWallet wallet;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    SerializablePerson person1(\textcolor{stringliteral}{"David"}, 32, \{\{5, 10, 5\}, \textcolor{stringliteral}{"David"}\});}
+\DoxyCodeLine{    SerializablePerson person2(\textcolor{stringliteral}{"Robert"}, 45, \{\{20, 5, 1\}, \textcolor{stringliteral}{"Robert"}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}} obj;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    obj = person1.serialize();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    person2.unserialize(obj);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// person2 is now a copy of person1}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 

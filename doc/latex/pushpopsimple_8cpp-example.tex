@@ -1,0 +1,27 @@
+\hypertarget{pushpopsimple_8cpp-example}{}\section{pushpopsimple.\+cpp}
+A simple example on how to use push\+Data and pop\+Data.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{** ByteArraySerialisation}}
+\DoxyCodeLine{\textcolor{comment}{** File description:}}
+\DoxyCodeLine{\textcolor{comment}{** Short example on how to use pushData and popData}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{bas_8hpp}{bas.hpp}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} example(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}} obj;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} i = 5;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(i);        \textcolor{comment}{// No typename is needed.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    j = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_aad2a332aaecd0fba8eac2bf06b60d5df}{popData}}<\textcolor{keywordtype}{int}>(); \textcolor{comment}{// Typename required to pop the data. j is now equal to 5.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 

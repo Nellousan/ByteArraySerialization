@@ -1,0 +1,35 @@
+\hypertarget{pushpoparray_8cpp-example}{}\section{pushpoparray.\+cpp}
+This example shows how to push and pop c-\/style arrays.~\newline
+ This method is suited for every type of arrays, and is the workaround for every type that are not explicitly handled by the library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{bas_8hpp}{bas.hpp}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} example(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{classbas_1_1SerializedObject}{bas::SerializedObject}} obj;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} array[] = \{2, 5, 3, 6, 1\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    obj.\mbox{\hyperlink{classbas_1_1SerializedObject_ae6d94b4b6c3d77dad3aab140ea6f7ca1}{pushData}}(array, 5);           \textcolor{comment}{// 5 is the size of the array.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classbas_1_1PoppedArray}{bas::PoppedArray<int>}} popped;     \textcolor{comment}{// We use the popped array to retreive c-style arrays}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    popped = obj.\mbox{\hyperlink{classbas_1_1SerializedObject_a700a5ad3f53a5e12e51321f29e79e422}{popDataArray}}<\textcolor{keywordtype}{int}>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} *array = popped.\mbox{\hyperlink{classbas_1_1PoppedArray_a964ac49c32df363e64c4720479685036}{get}}();        \textcolor{comment}{// We use get() to retreive the pointer to the popped data}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Now let's say we want to assign this array to a std::vector<int>,}}
+\DoxyCodeLine{    \textcolor{comment}{// to do that, we need the size of the popped array.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::vector<int> vector;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordtype}{size\_t} size = popped.\mbox{\hyperlink{classbas_1_1PoppedArray_aeaaba8025e58cc663ac74426e1cde1b0}{size}}();       \textcolor{comment}{// We retreive the size of the popped array with size()}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    vector.assign(array, array + size);\textcolor{comment}{// We assign the data to the vector this way.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 

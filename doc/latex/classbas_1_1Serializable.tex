@@ -1,0 +1,126 @@
+\hypertarget{classbas_1_1Serializable}{}\section{bas\+::Serializable Class Reference}
+\label{classbas_1_1Serializable}\index{bas::Serializable@{bas::Serializable}}
+
+
+The \mbox{\hyperlink{classbas_1_1Serializable}{Serializable}} class, when herited from, allows you to serialize your own classes.  
+
+
+
+
+{\ttfamily \#include $<$bas.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classbas_1_1Serializable_ab604b55953376e9022d28988c698986e}{$\sim$\+Serializable}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}{make\+Serialization}} (\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Allow serialization of your class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}{make\+Unserialization}} (\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Allow unserialization of your class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbas_1_1Serializable_abd7e38e7a1e5a14b5614ee1c8b4612e0}{unserialize}} (\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} obj)
+\begin{DoxyCompactList}\small\item\em Reconstruct object from a \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} \mbox{\hyperlink{classbas_1_1Serializable_a8b05e1e79cc281aa687c12b5786c2af3}{serialize}} (void)
+\begin{DoxyCompactList}\small\item\em Serialize the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{classbas_1_1Serializable}{Serializable}} class, when herited from, allows you to serialize your own classes. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}{make\+Serialization()}} 
+
+\mbox{\hyperlink{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}{make\+Unserialization()}} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{intrication_8cpp-example}{intrication.\+cpp}}, and \mbox{\hyperlink{serialization_8cpp-example}{serialization.\+cpp}}.\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbas_1_1Serializable_ab604b55953376e9022d28988c698986e}\label{classbas_1_1Serializable_ab604b55953376e9022d28988c698986e}} 
+\index{bas::Serializable@{bas::Serializable}!````~Serializable@{$\sim$Serializable}}
+\index{````~Serializable@{$\sim$Serializable}!bas::Serializable@{bas::Serializable}}
+\subsubsection{\texorpdfstring{$\sim$Serializable()}{~Serializable()}}
+{\footnotesize\ttfamily virtual bas\+::\+Serializable\+::$\sim$\+Serializable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}\label{classbas_1_1Serializable_a013fd7c7acd4979418a7d30651a4b135}} 
+\index{bas::Serializable@{bas::Serializable}!makeSerialization@{makeSerialization}}
+\index{makeSerialization@{makeSerialization}!bas::Serializable@{bas::Serializable}}
+\subsubsection{\texorpdfstring{makeSerialization()}{makeSerialization()}}
+{\footnotesize\ttfamily virtual void bas\+::\+Serializable\+::make\+Serialization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allow serialization of your class. 
+
+This function should be overriden, and contain the serialization process of your class.~\newline
+ Note that this function is called by \mbox{\hyperlink{classbas_1_1Serializable_a8b05e1e79cc281aa687c12b5786c2af3}{serialize()}} should not be called directly bu user end. (see Examples) 
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object to push the data into. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{intrication_8cpp-example}{intrication.\+cpp}}, and \mbox{\hyperlink{serialization_8cpp-example}{serialization.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}\label{classbas_1_1Serializable_af46002b3532fb719fa47e1d7cc731dd2}} 
+\index{bas::Serializable@{bas::Serializable}!makeUnserialization@{makeUnserialization}}
+\index{makeUnserialization@{makeUnserialization}!bas::Serializable@{bas::Serializable}}
+\subsubsection{\texorpdfstring{makeUnserialization()}{makeUnserialization()}}
+{\footnotesize\ttfamily virtual void bas\+::\+Serializable\+::make\+Unserialization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allow unserialization of your class. 
+
+This function should be overriden, and contain the unserialization process of your class.~\newline
+ Note that this function is called by \mbox{\hyperlink{classbas_1_1Serializable_abd7e38e7a1e5a14b5614ee1c8b4612e0}{unserialize()}} should not be called directly bu user end. (see Examples) 
+\begin{DoxyParams}{Parameters}
+{\em obj} & The object to pop the data from. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{intrication_8cpp-example}{intrication.\+cpp}}, and \mbox{\hyperlink{serialization_8cpp-example}{serialization.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classbas_1_1Serializable_a8b05e1e79cc281aa687c12b5786c2af3}\label{classbas_1_1Serializable_a8b05e1e79cc281aa687c12b5786c2af3}} 
+\index{bas::Serializable@{bas::Serializable}!serialize@{serialize}}
+\index{serialize@{serialize}!bas::Serializable@{bas::Serializable}}
+\subsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} bas\+::\+Serializable\+::serialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serialize the class. 
+
+This function create a \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} of your class.~\newline
+The serializing process of this function is defined by overriding make\+Serialization. \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} containing the data of the class. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbas_1_1Serializable_abd7e38e7a1e5a14b5614ee1c8b4612e0}\label{classbas_1_1Serializable_abd7e38e7a1e5a14b5614ee1c8b4612e0}} 
+\index{bas::Serializable@{bas::Serializable}!unserialize@{unserialize}}
+\index{unserialize@{unserialize}!bas::Serializable@{bas::Serializable}}
+\subsubsection{\texorpdfstring{unserialize()}{unserialize()}}
+{\footnotesize\ttfamily void bas\+::\+Serializable\+::unserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}}}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reconstruct object from a \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}}. 
+
+This function copies the \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} before unserializing, meaning that the same object can be used to unserialize multiple times.~\newline
+The unserializing process of this function is defined by overriding make\+Unserialization. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & \mbox{\hyperlink{classbas_1_1SerializedObject}{Serialized\+Object}} to unserialize from. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{bas_8hpp}{bas.\+hpp}}\end{DoxyCompactItemize}
