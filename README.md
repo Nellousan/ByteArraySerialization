@@ -18,3 +18,4 @@ A full documentation of the library is provided in this repository, open /docs/h
 - Unit-Tests
 - Make this readme into a proper readme
 - CI
+- Add a way to check documentation without having to clone the repository
