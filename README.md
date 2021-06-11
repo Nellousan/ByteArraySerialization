@@ -19,3 +19,4 @@ A full documentation of the library is provided in this repository, open /docs/h
 - Make this readme into a proper readme
 - CI
 - Add a way to check documentation without having to clone the repository
+- Make a release and versionning stuff
