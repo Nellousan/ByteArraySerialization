@@ -16,7 +16,6 @@ Here is a quick example of how the serialization process works
 
 class SerializablePerson : public bas::Serializable {        // inherit from the Serializable class
 public:
-
     SerializablePerson(const std::string& name, int age)
         : name(name)
         , age(age)
@@ -38,7 +37,7 @@ public:
         name = obj.popData<std::string>();
         age = obj.popData<int>();
     }
-    
+
     std::string name;
     int age;
 };
