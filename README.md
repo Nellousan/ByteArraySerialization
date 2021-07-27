@@ -13,6 +13,7 @@ Here is a quick example of how the serialization process works
 ```c++
 #include "bas.hpp"
 #include <string>
+
 class SerializablePerson : public bas::Serializable {        // inherit from the Serializable class
 public:
     SerializablePerson(const std::string& name, int age)
@@ -36,10 +37,11 @@ public:
     std::string name;
     int age;
 };
+
 int main(void)
 {
-    SerializablePerson person1("David", 32);
-    SerializablePerson person2("Robert", 45);
+    bas::SerializablePerson person1("David", 32);
+    bas::SerializablePerson person2("Robert", 45);
     bas::SerializedObject obj;
     obj = person1.serialize();                              // Use serialize() and not makeSerialization()
     person2.unserialize(obj);                               // Use unserialize() and not makeUnserialization()
