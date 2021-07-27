@@ -5,6 +5,7 @@
 Multi-purpose byte array serialization lib for C++ classes or any type of data.\
 This lib provide a way to easily serialize classes for networking purpose or to save them into binary file (even though you're probably better using json or xml in this case)
 
+--------
 ## Usage Example
 
 Here is a quick example of how the serialization process works
@@ -46,9 +47,9 @@ int main(void)
     return 0;
 }
 ```
-
+--------
 ## Installation
-\
+
 ```
 git clone https://github.com/Nellousan/ByteArraySerialization.git
 cd ByteArraySerialisation
@@ -57,10 +58,12 @@ cp include/bas.hpp the/path/to/your/poject's/include/folder
 
 Since this lib is header only and fits into one file, using it is a simple as grabbing the bas.hpp file and add it into your include path of your project and it's ready to go.
 
+--------
 ## Documentation
 \
 Here is a [link](https://nellousan.github.io/ByteArraySerialization/) to the documentation of the project.
 
+--------
 ## TO-DO
 
 - Unit-Tests
