@@ -40,8 +40,8 @@ public:
 
 int main(void)
 {
-    bas::SerializablePerson person1("David", 32);
-    bas::SerializablePerson person2("Robert", 45);
+    SerializablePerson person1("David", 32);
+    SerializablePerson person2("Robert", 45);
     bas::SerializedObject obj;
     obj = person1.serialize();                              // Use serialize() and not makeSerialization()
     person2.unserialize(obj);                               // Use unserialize() and not makeUnserialization()
