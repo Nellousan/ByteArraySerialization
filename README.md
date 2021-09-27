@@ -84,13 +84,13 @@ Since the ByteArraySerialization lib does not parse, expect the process of seria
 
 ## Cons
 
-### 1. Flexibility
+### 1. Flexibility & Readability
 
 The payload of the serialized object isn't nearly as flexible as it's usual json alternatives.
 
-### 2. Readability
+### 2. Availability
 
-The payload of teh serialized object isn't readable.
+For now the ByteArraySerialization lib is only available for c++.
 
 --------
 ## Installation
