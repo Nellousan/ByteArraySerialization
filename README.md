@@ -57,6 +57,42 @@ int main(void)
 }
 ```
 --------
+## Pros & Cons
+
+## Pros
+
+### 1. Size
+
+let's consider this simple json payload:
+
+```
+{"data1":[25565,42069,12675,162,1325465],"data2":"I'm a string data."}
+```
+
+This json payload is 63 Bytes long.
+Now let's look at the payload of a serialized object equivalent to this json snippet:
+
+![Datagram](./.github/datagram.png)
+
+The serialized object payload is much smaller in most cases.
+
+### 2. Speed
+
+/!\ the following assumptions haven't been tested yet, they're assumptions /!\
+
+Since the ByteArraySerialization lib does not parse, expect the process of serialization/unserialization to be much faster than json/xml.
+
+## Cons
+
+### 1. Flexibility
+
+The payload of the serialized object isn't nearly as flexible as it's usual json alternatives.
+
+### 2. Readability
+
+The payload of teh serialized object isn't readable.
+
+--------
 ## Installation
 
 ```
@@ -75,6 +111,6 @@ Here is a [link](https://nellousan.github.io/ByteArraySerialization/) to the doc
 --------
 ## TO-DO
 
-- Unit-Tests
-- CI
+- Unit Tests
 - Make a release and versionning stuff
+- Test speed against xml/json
