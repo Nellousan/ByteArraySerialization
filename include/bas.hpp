@@ -583,7 +583,7 @@ public:
     {
         size_t size = 0;
         size_t array_size = 0;
-        SerializedObject obj;
+        SerializedObject _obj;
         char* var;
 
         std::tie(size, array_size) = obj.getSizes();
@@ -592,11 +592,11 @@ public:
     
         obj.copyMem(size, array_size, var);
     
-        obj = var;
+        _obj = var;
     
         delete var;
     
-        return obj;
+        return _obj;
     }
 
 };
