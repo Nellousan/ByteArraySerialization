@@ -566,7 +566,7 @@ public:
 template <>
 class Helper<SerializedObject> {
 public:
-    inline void pushData(SerializedObject& obj, SerializedObject& data_)
+    inline void pushData(SerializedObject& obj, const SerializedObject& data_)
     {
         const char* data = (char*)data_.payload();
         size_t size = sizeof(char);
